@@ -8,14 +8,18 @@ while True:
     rw = RandomWalk()
     rw.fill_walk()
     
+    #设置绘图窗口
+    plt.figure(dpi=100, figsize=(10, 6))
     point_number = list(range(rw.num_points))
     plt.scatter(rw.x_values, rw.y_values, c=point_number, cmap=plt.cm.Blues,
         edgecolor='none', s=1)
+    #plt.plot(rw.x_values, rw.y_values, linewidth=5)
         
-    #突出起点和重点
+    #突出起点和终点
     plt.scatter(0, 0, c='green', edgecolor='none', s=100)
     plt.scatter(rw.x_values[-1], rw.y_values[-1], c='red', edgecolor='none',
         s=100)
+    plt.savefig('rw_visual.png')
     plt.show()
     
     keep_running = input("Make another walk?(y/n): ")
